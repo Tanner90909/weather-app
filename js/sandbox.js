@@ -8,6 +8,7 @@ const displayLocation = document.getElementById("location");
 const displayKelvin = document.getElementById("kelvin");
 const displayFahrenheit = document.getElementById("fahrenheit");
 const displayCelcius = document.getElementById("celcius");
+const displayCondition = document.getElementById("condition");
 
 async function testApi(){
   const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;

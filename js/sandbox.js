@@ -9,6 +9,7 @@ const displayKelvin = document.getElementById("kelvin");
 const displayFahrenheit = document.getElementById("fahrenheit");
 const displayCelcius = document.getElementById("celcius");
 const displayCondition = document.getElementById("condition");
+const errorMessage = document.getElementById("error-message");
 
 async function testApi(){
   const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
@@ -39,11 +40,15 @@ async function accessWeather(){
     const tempCelcius = (response.data.main.temp - 273);
     const weatherCondition = response.data.weather[0].description;
     displayLocation.textContent = 'City: '+ location;
-    displayKelvin.textContent = Math.floor(tempKelvin) + '° Kelvin';
-    displayFahrenheit.textContent = Math.floor(tempFahrenheit) + '° Fahrenheit';
-    displayCelcius.textContent = Math.floor(tempCelcius) + '° Celcius';
+    displayKelvin.textContent = Math.floor(tempKelvin) + '° K';
+    displayFahrenheit.textContent = Math.floor(tempFahrenheit) + '° F';
+    displayCelcius.textContent = Math.floor(tempCelcius) + '° C';
     displayCondition.textContent = "Condition: " + weatherCondition;
-   } else {
+    errorMessage.textContent = "";
+   } else if (response.status === 404){
+    errorMessage.textContent = "Invalid Zip Code";
+   }
+   else {
     console.log("Data NOT successfully retrieved from API" + response.status);
    } 
   } catch (error){

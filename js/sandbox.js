@@ -1,9 +1,8 @@
 const apiKey = '66dab46513751c53cd2300f5a230f3e1';
-const zipCode = '40517';
-
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey
+const zipCode = 40517;
 
 const getWeatherButton = document.getElementById("get-weather");
+
 const zipCodeInput = document.getElementById("zip-code-input");
 const displayLocation = document.getElementById("location");
 const displayKelvin = document.getElementById("kelvin");
@@ -11,6 +10,7 @@ const displayFahrenheit = document.getElementById("fahrenheit");
 const displayCelcius = document.getElementById("celcius");
 
 async function testApi(){
+  const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
     try {
         const response = await axios.get(apiUrl);
     
@@ -28,6 +28,7 @@ async function testApi(){
 
 async function accessWeather(){
   const zipCode = zipCodeInput.value;
+  const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
   try {
     const response = await axios.get(apiUrl);
    if (response.status === 200){

@@ -42,7 +42,7 @@ async function accessWeather(){
     displayKelvin.textContent = Math.floor(tempKelvin) + '° Kelvin';
     displayFahrenheit.textContent = Math.floor(tempFahrenheit) + '° Fahrenheit';
     displayCelcius.textContent = Math.floor(tempCelcius) + '° Celcius';
-    displayCondition.textContent = weatherCondition;
+    displayCondition.textContent = "Condition: " + weatherCondition;
    } else {
     console.log("Data NOT successfully retrieved from API" + response.status);
    } 
@@ -52,10 +52,6 @@ async function accessWeather(){
 }
 
 getWeatherButton.addEventListener('click', accessWeather);
-
-//response.data.weather
-//response.data.wind
-//response.data.main.temp
 
 
   

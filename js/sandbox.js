@@ -37,10 +37,12 @@ async function accessWeather(){
     const tempKelvin = response.data.main.temp;
     const tempFahrenheit = (1.8*(response.data.main.temp - 273) + 32);
     const tempCelcius = (response.data.main.temp - 273);
+    const weatherCondition = response.data.weather[0].description;
     displayLocation.textContent = 'City: '+ location;
     displayKelvin.textContent = Math.floor(tempKelvin) + '° Kelvin';
     displayFahrenheit.textContent = Math.floor(tempFahrenheit) + '° Fahrenheit';
     displayCelcius.textContent = Math.floor(tempCelcius) + '° Celcius';
+    displayCondition.textContent = weatherCondition;
    } else {
     console.log("Data NOT successfully retrieved from API" + response.status);
    } 

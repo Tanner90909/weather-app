@@ -11,22 +11,22 @@ const displayCelcius = document.getElementById("celcius");
 const displayCondition = document.getElementById("condition");
 const errorMessage = document.getElementById("error-message");
 
-async function testApi(){
-  const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
-    try {
-        const response = await axios.get(apiUrl);
+// async function testApi(){
+//   const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
+//     try {
+//         const response = await axios.get(apiUrl);
     
-        if (response.status === 200) {
-          console.log(response);
-          console.log('Data successfully retrieved from API')
-        } else {
-          console.log('API request returned a non-200 status code:', response.status);
-        }
-      } catch (error) {
-        console.error('Error fetching weather data:', error);
-      }
-    }
-    testApi();
+//         if (response.status === 200) {
+//           console.log(response);
+//           console.log('Data successfully retrieved from API')
+//         } else {
+//           console.log('API request returned a non-200 status code:', response.status);
+//         }
+//       } catch (error) {
+//         console.error('Error fetching weather data:', error);
+//       }
+//     }
+//     testApi();
 
 async function accessWeather(){
   const zipCode = zipCodeInput.value;
@@ -45,14 +45,12 @@ async function accessWeather(){
     displayCelcius.textContent = Math.floor(tempCelcius) + '° C';
     displayCondition.textContent = "Condition: " + weatherCondition;
     errorMessage.textContent = "";
-   } else if (response.status === 404){
-    errorMessage.textContent = "Invalid Zip Code";
-   }
-   else {
+   } else {
     console.log("Data NOT successfully retrieved from API" + response.status);
    } 
   } catch (error){
-    console.error("Error fetching weather data" + error);
+    //console.error("Error fetching weather data" + error);
+    errorMessage.textContent = "Invalid Zip Code";
   }
 }
 

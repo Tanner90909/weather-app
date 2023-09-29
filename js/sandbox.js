@@ -10,6 +10,7 @@ const displayFahrenheit = document.getElementById("fahrenheit");
 const displayCelcius = document.getElementById("celcius");
 const displayCondition = document.getElementById("condition");
 const errorMessage = document.getElementById("error-message");
+const displayIcon = document.getElementById("icons");
 
 // async function testApi(){
 //   const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode +'&appid=' + apiKey;
@@ -44,6 +45,7 @@ async function accessWeather(){
     displayFahrenheit.textContent = Math.floor(tempFahrenheit) + '° F';
     displayCelcius.textContent = Math.floor(tempCelcius) + '° C';
     displayCondition.textContent = "Condition: " + weatherCondition;
+    displayIcon.src = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     errorMessage.textContent = "";
    } else {
     console.log("Data NOT successfully retrieved from API" + response.status);

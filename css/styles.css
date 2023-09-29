@@ -13,3 +13,9 @@ body::before {
     background-repeat: no-repeat;
     opacity: 0.5;
   }
+  @media (max-width: 768px) {
+    body::before {
+      background-image: url(/img/sky-image.jpg);
+      opacity: 0.7; 
+    }
+  }

@@ -7,7 +7,7 @@ body::before {
     height: 100%;
     z-index: -1;
   
-    background-image: url('/img/weather-image.jpg');
+    background-image: url('img/weather-image.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body::before {
   }
   @media (max-width: 768px) {
     body::before {
-      background-image: url('/img/sky-image.jpg');
+      background-image: url('img/sky-image.jpg');
       opacity: 0.7; 
     }
   }
